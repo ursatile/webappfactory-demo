@@ -1,17 +1,21 @@
-var builder = WebApplication.CreateBuilder(args);
+namespace ApiServer;
 
-// Add services to the container.
+public class Program {
+	public static void Main(string[] args) {
+		var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+		// Add services to the container.
 
-var app = builder.Build();
+		builder.Services.AddControllers();
 
-// Configure the HTTP request pipeline.
+		var app = builder.Build();
 
-app.UseHttpsRedirection();
+		app.UseHttpsRedirection();
 
-app.UseAuthorization();
+		app.UseAuthorization();
 
-app.MapControllers();
+		app.MapControllers();
 
-app.Run();
+		app.Run();
+	}
+}
