@@ -5,6 +5,7 @@ public class Program {
 		var builder = WebApplication.CreateBuilder(args);
 
 		builder.Services.AddControllers();
+		builder.Services.AddSingleton<IWeatherService, RandomWeatherService>();
 
 		var app = builder.Build();
 

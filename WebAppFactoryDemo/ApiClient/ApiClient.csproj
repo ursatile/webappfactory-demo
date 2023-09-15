@@ -11,4 +11,8 @@
     <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="110.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ApiServer\ApiServer.csproj" />
+  </ItemGroup>
+
 </Project>

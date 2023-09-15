@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using ApiServer;
+using Newtonsoft.Json;
+using RestSharp;
 
 var client = new WeatherClient();
 var forecast = await client.GetWeatherForecast();
@@ -17,9 +19,8 @@ public class WeatherClient {
 		this.restClient = new RestClient(options);
 	}
 
-	public async Task<string?> GetWeatherForecast() {
+	public async Task<WeatherForecast[]?> GetWeatherForecast() {
 		var request = new RestRequest("/weatherforecast");
-		var response = await restClient.GetAsync(request);
-		return response.Content;
+		return await restClient.GetAsync<WeatherForecast[]>(request);
 	}
 }
